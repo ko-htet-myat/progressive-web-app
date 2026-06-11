@@ -5,6 +5,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import { pwaConfig } from "./pwa.config.ts";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -18,4 +19,9 @@ export default defineConfig({
     VitePWA(pwaConfig),
     tailwindcss(),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 });

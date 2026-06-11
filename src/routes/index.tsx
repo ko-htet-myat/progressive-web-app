@@ -1,3 +1,4 @@
+import SettingsGrid from "@/components/setting-cards";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -7,8 +8,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="p-2">
-      <h3>Welcome Home!</h3>
-      <div></div>
+      <SettingsGrid />
     </div>
   );
 }

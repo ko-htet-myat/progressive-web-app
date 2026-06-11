@@ -14,9 +14,20 @@ import { Route as AuthRouteImport } from './routes/_auth'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
+import { Route as AppUsersAccountRouteImport } from './routes/_app/users-account'
+import { Route as AppStoreInfoRouteImport } from './routes/_app/store-info'
 import { Route as AppSettingRouteImport } from './routes/_app/setting'
+import { Route as AppPrintingDeviceRouteImport } from './routes/_app/printing-device'
+import { Route as AppPaymentTypeRouteImport } from './routes/_app/payment-type'
+import { Route as AppNotificationRouteImport } from './routes/_app/notification'
+import { Route as AppFloorAreaDataRouteImport } from './routes/_app/floor-area-data'
+import { Route as AppEmployeeScheduleRouteImport } from './routes/_app/employee-schedule'
+import { Route as AppEmployeeDataRouteImport } from './routes/_app/employee-data'
 import { Route as AppEmployeeRouteImport } from './routes/_app/employee'
+import { Route as AppDineInRouteImport } from './routes/_app/dine-in'
 import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
+import { Route as AppCategoriesMenuRouteImport } from './routes/_app/categories-menu'
+import { Route as AppBankAccountRouteImport } from './routes/_app/bank-account'
 
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
@@ -41,9 +52,49 @@ const AuthLoginRoute = AuthLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => AuthRoute,
 } as any)
+const AppUsersAccountRoute = AppUsersAccountRouteImport.update({
+  id: '/users-account',
+  path: '/users-account',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStoreInfoRoute = AppStoreInfoRouteImport.update({
+  id: '/store-info',
+  path: '/store-info',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppSettingRoute = AppSettingRouteImport.update({
   id: '/setting',
   path: '/setting',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPrintingDeviceRoute = AppPrintingDeviceRouteImport.update({
+  id: '/printing-device',
+  path: '/printing-device',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPaymentTypeRoute = AppPaymentTypeRouteImport.update({
+  id: '/payment-type',
+  path: '/payment-type',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNotificationRoute = AppNotificationRouteImport.update({
+  id: '/notification',
+  path: '/notification',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFloorAreaDataRoute = AppFloorAreaDataRouteImport.update({
+  id: '/floor-area-data',
+  path: '/floor-area-data',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEmployeeScheduleRoute = AppEmployeeScheduleRouteImport.update({
+  id: '/employee-schedule',
+  path: '/employee-schedule',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEmployeeDataRoute = AppEmployeeDataRouteImport.update({
+  id: '/employee-data',
+  path: '/employee-data',
   getParentRoute: () => AppRoute,
 } as any)
 const AppEmployeeRoute = AppEmployeeRouteImport.update({
@@ -51,26 +102,63 @@ const AppEmployeeRoute = AppEmployeeRouteImport.update({
   path: '/employee',
   getParentRoute: () => AppRoute,
 } as any)
+const AppDineInRoute = AppDineInRouteImport.update({
+  id: '/dine-in',
+  path: '/dine-in',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppDashboardRoute = AppDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCategoriesMenuRoute = AppCategoriesMenuRouteImport.update({
+  id: '/categories-menu',
+  path: '/categories-menu',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBankAccountRoute = AppBankAccountRouteImport.update({
+  id: '/bank-account',
+  path: '/bank-account',
   getParentRoute: () => AppRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/bank-account': typeof AppBankAccountRoute
+  '/categories-menu': typeof AppCategoriesMenuRoute
   '/dashboard': typeof AppDashboardRoute
+  '/dine-in': typeof AppDineInRoute
   '/employee': typeof AppEmployeeRoute
+  '/employee-data': typeof AppEmployeeDataRoute
+  '/employee-schedule': typeof AppEmployeeScheduleRoute
+  '/floor-area-data': typeof AppFloorAreaDataRoute
+  '/notification': typeof AppNotificationRoute
+  '/payment-type': typeof AppPaymentTypeRoute
+  '/printing-device': typeof AppPrintingDeviceRoute
   '/setting': typeof AppSettingRoute
+  '/store-info': typeof AppStoreInfoRoute
+  '/users-account': typeof AppUsersAccountRoute
   '/login': typeof AuthLoginRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/bank-account': typeof AppBankAccountRoute
+  '/categories-menu': typeof AppCategoriesMenuRoute
   '/dashboard': typeof AppDashboardRoute
+  '/dine-in': typeof AppDineInRoute
   '/employee': typeof AppEmployeeRoute
+  '/employee-data': typeof AppEmployeeDataRoute
+  '/employee-schedule': typeof AppEmployeeScheduleRoute
+  '/floor-area-data': typeof AppFloorAreaDataRoute
+  '/notification': typeof AppNotificationRoute
+  '/payment-type': typeof AppPaymentTypeRoute
+  '/printing-device': typeof AppPrintingDeviceRoute
   '/setting': typeof AppSettingRoute
+  '/store-info': typeof AppStoreInfoRoute
+  '/users-account': typeof AppUsersAccountRoute
   '/login': typeof AuthLoginRoute
 }
 export interface FileRoutesById {
@@ -79,25 +167,81 @@ export interface FileRoutesById {
   '/_app': typeof AppRouteWithChildren
   '/_auth': typeof AuthRouteWithChildren
   '/about': typeof AboutRoute
+  '/_app/bank-account': typeof AppBankAccountRoute
+  '/_app/categories-menu': typeof AppCategoriesMenuRoute
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/dine-in': typeof AppDineInRoute
   '/_app/employee': typeof AppEmployeeRoute
+  '/_app/employee-data': typeof AppEmployeeDataRoute
+  '/_app/employee-schedule': typeof AppEmployeeScheduleRoute
+  '/_app/floor-area-data': typeof AppFloorAreaDataRoute
+  '/_app/notification': typeof AppNotificationRoute
+  '/_app/payment-type': typeof AppPaymentTypeRoute
+  '/_app/printing-device': typeof AppPrintingDeviceRoute
   '/_app/setting': typeof AppSettingRoute
+  '/_app/store-info': typeof AppStoreInfoRoute
+  '/_app/users-account': typeof AppUsersAccountRoute
   '/_auth/login': typeof AuthLoginRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/dashboard' | '/employee' | '/setting' | '/login'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/bank-account'
+    | '/categories-menu'
+    | '/dashboard'
+    | '/dine-in'
+    | '/employee'
+    | '/employee-data'
+    | '/employee-schedule'
+    | '/floor-area-data'
+    | '/notification'
+    | '/payment-type'
+    | '/printing-device'
+    | '/setting'
+    | '/store-info'
+    | '/users-account'
+    | '/login'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/dashboard' | '/employee' | '/setting' | '/login'
+  to:
+    | '/'
+    | '/about'
+    | '/bank-account'
+    | '/categories-menu'
+    | '/dashboard'
+    | '/dine-in'
+    | '/employee'
+    | '/employee-data'
+    | '/employee-schedule'
+    | '/floor-area-data'
+    | '/notification'
+    | '/payment-type'
+    | '/printing-device'
+    | '/setting'
+    | '/store-info'
+    | '/users-account'
+    | '/login'
   id:
     | '__root__'
     | '/'
     | '/_app'
     | '/_auth'
     | '/about'
+    | '/_app/bank-account'
+    | '/_app/categories-menu'
     | '/_app/dashboard'
+    | '/_app/dine-in'
     | '/_app/employee'
+    | '/_app/employee-data'
+    | '/_app/employee-schedule'
+    | '/_app/floor-area-data'
+    | '/_app/notification'
+    | '/_app/payment-type'
+    | '/_app/printing-device'
     | '/_app/setting'
+    | '/_app/store-info'
+    | '/_app/users-account'
     | '/_auth/login'
   fileRoutesById: FileRoutesById
 }
@@ -145,11 +289,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLoginRouteImport
       parentRoute: typeof AuthRoute
     }
+    '/_app/users-account': {
+      id: '/_app/users-account'
+      path: '/users-account'
+      fullPath: '/users-account'
+      preLoaderRoute: typeof AppUsersAccountRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/store-info': {
+      id: '/_app/store-info'
+      path: '/store-info'
+      fullPath: '/store-info'
+      preLoaderRoute: typeof AppStoreInfoRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/setting': {
       id: '/_app/setting'
       path: '/setting'
       fullPath: '/setting'
       preLoaderRoute: typeof AppSettingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/printing-device': {
+      id: '/_app/printing-device'
+      path: '/printing-device'
+      fullPath: '/printing-device'
+      preLoaderRoute: typeof AppPrintingDeviceRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/payment-type': {
+      id: '/_app/payment-type'
+      path: '/payment-type'
+      fullPath: '/payment-type'
+      preLoaderRoute: typeof AppPaymentTypeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/notification': {
+      id: '/_app/notification'
+      path: '/notification'
+      fullPath: '/notification'
+      preLoaderRoute: typeof AppNotificationRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/floor-area-data': {
+      id: '/_app/floor-area-data'
+      path: '/floor-area-data'
+      fullPath: '/floor-area-data'
+      preLoaderRoute: typeof AppFloorAreaDataRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/employee-schedule': {
+      id: '/_app/employee-schedule'
+      path: '/employee-schedule'
+      fullPath: '/employee-schedule'
+      preLoaderRoute: typeof AppEmployeeScheduleRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/employee-data': {
+      id: '/_app/employee-data'
+      path: '/employee-data'
+      fullPath: '/employee-data'
+      preLoaderRoute: typeof AppEmployeeDataRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/employee': {
@@ -159,6 +359,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEmployeeRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/dine-in': {
+      id: '/_app/dine-in'
+      path: '/dine-in'
+      fullPath: '/dine-in'
+      preLoaderRoute: typeof AppDineInRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/dashboard': {
       id: '/_app/dashboard'
       path: '/dashboard'
@@ -166,19 +373,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/categories-menu': {
+      id: '/_app/categories-menu'
+      path: '/categories-menu'
+      fullPath: '/categories-menu'
+      preLoaderRoute: typeof AppCategoriesMenuRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/bank-account': {
+      id: '/_app/bank-account'
+      path: '/bank-account'
+      fullPath: '/bank-account'
+      preLoaderRoute: typeof AppBankAccountRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
+  AppBankAccountRoute: typeof AppBankAccountRoute
+  AppCategoriesMenuRoute: typeof AppCategoriesMenuRoute
   AppDashboardRoute: typeof AppDashboardRoute
+  AppDineInRoute: typeof AppDineInRoute
   AppEmployeeRoute: typeof AppEmployeeRoute
+  AppEmployeeDataRoute: typeof AppEmployeeDataRoute
+  AppEmployeeScheduleRoute: typeof AppEmployeeScheduleRoute
+  AppFloorAreaDataRoute: typeof AppFloorAreaDataRoute
+  AppNotificationRoute: typeof AppNotificationRoute
+  AppPaymentTypeRoute: typeof AppPaymentTypeRoute
+  AppPrintingDeviceRoute: typeof AppPrintingDeviceRoute
   AppSettingRoute: typeof AppSettingRoute
+  AppStoreInfoRoute: typeof AppStoreInfoRoute
+  AppUsersAccountRoute: typeof AppUsersAccountRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppBankAccountRoute: AppBankAccountRoute,
+  AppCategoriesMenuRoute: AppCategoriesMenuRoute,
   AppDashboardRoute: AppDashboardRoute,
+  AppDineInRoute: AppDineInRoute,
   AppEmployeeRoute: AppEmployeeRoute,
+  AppEmployeeDataRoute: AppEmployeeDataRoute,
+  AppEmployeeScheduleRoute: AppEmployeeScheduleRoute,
+  AppFloorAreaDataRoute: AppFloorAreaDataRoute,
+  AppNotificationRoute: AppNotificationRoute,
+  AppPaymentTypeRoute: AppPaymentTypeRoute,
+  AppPrintingDeviceRoute: AppPrintingDeviceRoute,
   AppSettingRoute: AppSettingRoute,
+  AppStoreInfoRoute: AppStoreInfoRoute,
+  AppUsersAccountRoute: AppUsersAccountRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)

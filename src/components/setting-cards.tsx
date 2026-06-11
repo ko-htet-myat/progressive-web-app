@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { Link } from "@tanstack/react-router";
 
 // Define the structure for our setting items
 interface SettingItem {
@@ -22,9 +23,6 @@ interface SettingItem {
 }
 
 export default function SettingsGrid() {
-  // Replace this with actual state management (e.g., active tab) if needed
-  const activeItemId = "bank-account";
-
   const settings: SettingItem[] = [
     { id: "employee-data", label: "Employee Data", icon: Users },
     { id: "employee-schedule", label: "Employee Schedule", icon: Calendar },
@@ -50,34 +48,38 @@ export default function SettingsGrid() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {settings.map((item) => {
           const Icon = item.icon;
-          const isActive = item.id === activeItemId;
 
           return (
-            <Card
+            <Link
               key={item.id}
-              className={cn(
-                "cursor-pointer transition-all duration-200 border border-zinc-200 hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700 shadow-sm",
-                isActive &&
-                  "bg-orange-50/50 border-orange-200 hover:border-orange-200 dark:bg-orange-950/20 dark:border-orange-900",
-              )}
-            >
-              <CardContent className="flex flex-col items-center justify-center p-8 space-y-3 text-center">
-                <Icon
+              to={"/" + item.id}
+              children={({ isActive }) => (
+                <Card
                   className={cn(
-                    "w-6 h-6 text-zinc-700 dark:text-zinc-300",
-                    isActive && "text-amber-700 dark:text-amber-500",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "text-sm font-medium text-zinc-950 dark:text-zinc-50",
-                    isActive && "text-amber-950 dark:text-amber-400",
+                    "cursor-pointer transition-all duration-200 border border-zinc-200 hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700 shadow-sm",
+                    isActive &&
+                      "bg-orange-50/50 border-orange-300 hover:border-orange-300 dark:bg-orange-950/20 dark:border-orange-900",
                   )}
                 >
-                  {item.label}
-                </span>
-              </CardContent>
-            </Card>
+                  <CardContent className="flex flex-col items-center justify-center p-8 space-y-3 text-center">
+                    <Icon
+                      className={cn(
+                        "w-6 h-6 text-zinc-700 dark:text-zinc-300",
+                        isActive && "text-amber-700 dark:text-amber-500",
+                      )}
+                    />
+                    <span
+                      className={cn(
+                        "text-sm font-medium text-zinc-950 dark:text-zinc-50",
+                        isActive && "text-amber-950 dark:text-amber-400",
+                      )}
+                    >
+                      {item.label}
+                    </span>
+                  </CardContent>
+                </Card>
+              )}
+            />
           );
         })}
       </div>

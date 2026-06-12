@@ -15,36 +15,103 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
+import LogoutButton from "@/features/auth/components/logout-button";
 
 // Define the structure for our setting items
 interface SettingItem {
   id: string;
   label: string;
   icon: React.ComponentType<{ className?: string }>;
+  to:
+    | "/"
+    | "/bank-account"
+    | "/categories-menu"
+    | "/dashboard"
+    | "/dine-in"
+    | "/employee"
+    | "/employee-data"
+    | "/employee-schedule"
+    | "/floor-area-data"
+    | "/notification"
+    | "/payment-type"
+    | "/printing-device"
+    | "/setting"
+    | "/store-info"
+    | "/users-account"
+    | "/login";
 }
 
 export default function SettingsGrid() {
   const settings: SettingItem[] = [
-    { id: "employee-data", label: "Employee Data", icon: Users },
-    { id: "login", label: "Login", icon: Lock },
-    { id: "employee-schedule", label: "Employee Schedule", icon: Calendar },
-    { id: "users-account", label: "Users Account", icon: ShieldCheck },
-    { id: "store-info", label: "Store Info", icon: Store },
-    { id: "notification", label: "Notification", icon: Bell },
-    { id: "dine-in", label: "Dine In", icon: UtensilsCrossed },
-    { id: "categories-menu", label: "Categories Menu", icon: Layers },
-    { id: "payment-type", label: "Payment Type", icon: CreditCard },
-    { id: "bank-account", label: "Bank Account", icon: CreditCard }, // Reused CreditCard for the bank icon feel
-    { id: "floor-area-data", label: "Floor & Area Data", icon: Layers2 },
-    { id: "printing-device", label: "Printing Device", icon: Printer },
+    {
+      id: "employee-data",
+      label: "Employee Data",
+      icon: Users,
+      to: "/employee-data",
+    },
+    { id: "login", label: "Login", icon: Lock, to: "/login" },
+    {
+      id: "employee-schedule",
+      label: "Employee Schedule",
+      icon: Calendar,
+      to: "/employee-schedule",
+    },
+    {
+      id: "users-account",
+      label: "Users Account",
+      icon: ShieldCheck,
+      to: "/users-account",
+    },
+    { id: "store-info", label: "Store Info", icon: Store, to: "/store-info" },
+    {
+      id: "notification",
+      label: "Notification",
+      icon: Bell,
+      to: "/notification",
+    },
+    { id: "dine-in", label: "Dine In", icon: UtensilsCrossed, to: "/dine-in" },
+    {
+      id: "categories-menu",
+      label: "Categories Menu",
+      icon: Layers,
+      to: "/categories-menu",
+    },
+    {
+      id: "payment-type",
+      label: "Payment Type",
+      icon: CreditCard,
+      to: "/payment-type",
+    },
+    {
+      id: "bank-account",
+      label: "Bank Account",
+      icon: CreditCard,
+      to: "/bank-account",
+    },
+    {
+      id: "floor-area-data",
+      label: "Floor & Area Data",
+      icon: Layers2,
+      to: "/floor-area-data",
+    },
+    {
+      id: "printing-device",
+      label: "Printing Device",
+      icon: Printer,
+      to: "/printing-device",
+    },
   ];
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-white dark:bg-zinc-950">
       {/* Header */}
-      <h1 className=" text-xl sm:text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 mb-6">
+      <h1 className=" text-xl sm:text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
         Settings
       </h1>
+
+      <div className=" py-5">
+        <LogoutButton />
+      </div>
 
       {/* Grid Layout */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -54,7 +121,7 @@ export default function SettingsGrid() {
           return (
             <Link
               key={item.id}
-              to={"/" + item.id}
+              to={item.to}
               children={({ isActive }) => (
                 <Card
                   className={cn(

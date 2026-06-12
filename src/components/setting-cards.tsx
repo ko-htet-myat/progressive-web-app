@@ -10,6 +10,7 @@ import {
   CreditCard,
   Layers2,
   Printer,
+  Lock,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -25,6 +26,7 @@ interface SettingItem {
 export default function SettingsGrid() {
   const settings: SettingItem[] = [
     { id: "employee-data", label: "Employee Data", icon: Users },
+    { id: "login", label: "Login", icon: Lock },
     { id: "employee-schedule", label: "Employee Schedule", icon: Calendar },
     { id: "users-account", label: "Users Account", icon: ShieldCheck },
     { id: "store-info", label: "Store Info", icon: Store },

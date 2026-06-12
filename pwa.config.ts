@@ -22,8 +22,8 @@ export const pwaConfig: Partial<VitePWAOptions> = {
 
   // Manifest data required for installation on OS/Devices
   manifest: {
-    name: "Enterprise POS Web App",
-    short_name: "POSApp",
+    name: "INNO POS",
+    short_name: "INNOP",
     description: "High-reliability Point of Sale Web Application",
     theme_color: "#1e3a8a",
     background_color: "#ffffff",

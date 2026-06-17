@@ -6,6 +6,7 @@ import { pwaConfig } from "./pwa.config.ts";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import { configDefaults } from "vitest/config";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -19,6 +20,13 @@ export default defineConfig({
     VitePWA(pwaConfig),
     tailwindcss(),
   ],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/test/setup.ts",
+    css: true,
+    exclude: [...configDefaults.exclude],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
